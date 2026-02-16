@@ -7,24 +7,47 @@
 	
 	<style>
 	    html, body {
-    		font-family: "Helvetica Neue";
-		}
-		
-		main {
+    		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+                         Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 18pt;
             text-align: center;
 		}
 		
-		h1 {
+		body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0; /* remove default margin */
+		}
+		
+		main {
+            margin-top: 42pt;
+		}
+		
+		h1, h2, h3 {
 		    margin-top: 0;
 		    padding-top: 0;
+			font-weight: 600;
+		}
+		
+		footer {
+    		margin-top: auto;
+            margin-bottom: 5pt;
+    		font-size: 12pt;
 		}
 	</style>
 </head>
 <body>
     <main>
-        <img src="images/FolderTunes Icon 512x512.png" width="512" height="512" alt="FolderTunes Icon">
+        <img src="images/FolderTunes Icon 360x360.png" width="360" height="360" alt="FolderTunes Icon">
         
         <h1>FolderTunes</h1>
+        <h2>An iPhone app for playing music files from a folder.</h2>
+        <h3>Coming soon.</h3>
     </main>
+    
+    <footer>
+        &copy; 2026 Tolerable Software &amp; Avi Flax
+    </footer>
 </body>
 </html>
