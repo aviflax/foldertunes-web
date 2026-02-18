@@ -56,12 +56,12 @@ main > ul > li {
 
 section#join-form {
     background: linear-gradient(135deg, #d0eeff, #b0d4ff);
-    box-shadow: 0 4px 12px rgba(0, 60, 120, 0.15);
-    font-size: 11pt;
+    box-shadow: 0 4px 12px lightpink;
+    font-size: 12pt;
     border-radius: 18px;
     padding: 2em 2.5em;
-    max-width: 26em;
-    margin: 3em auto;
+    max-width: 28em;
+    margin: 2.5em auto;
     text-align: left;
 
     h1 {
@@ -82,6 +82,12 @@ section#join-form {
         flex-direction: column;
         gap: 1em;
     }
+    
+    form:has(:invalid) button[type="submit"] {
+      pointer-events: none;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
     label.field {
         display: flex;
@@ -91,7 +97,6 @@ section#join-form {
         span {
             font-weight: 600;
             color: #2c4a6a;
-            font-size: 0.9em;
         }
 
         input {
@@ -114,7 +119,7 @@ section#join-form {
         align-items: center;
         gap: 0.5em;
         color: #2c4a6a;
-        font-size: 0.9em;
+        font-weight: 600;
         cursor: pointer;
 
         input[type="checkbox"] {
