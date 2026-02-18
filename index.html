@@ -7,6 +7,17 @@
 	<link rel="stylesheet" href="presentation.css">
 	<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
+	<script>
+		function onSubmitted(event) {
+			if (event.detail.successful) {
+				event.target.innerHTML =
+					'<p class="success">✅ Request submitted and pending. Look for an email from TestFlight soon!</p>';
+			} else {
+				event.target.innerHTML =
+					'<p class="error">❌ Sadly, an error occurred. Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>';
+			}
+		}
+	</script>
 </head>
 <body id="home">
     <main>
@@ -25,7 +36,8 @@
             <form method="POST" action="https://foldertunes-beta-invite-requests.val.run/"
                   hx-boost="true"
                   hx-ext="json-enc"
-                  hx-swap="outerHTML">
+                  hx-swap="none"
+                  hx-on::after-request="onSubmitted(event)">
                 <label class="field">
                     <span>Email</span>
                     <input name="email" type="email" required placeholder="you@email.com"/>
@@ -39,6 +51,7 @@
                     I agree to send feedback
                 </label>
                 <button type="submit">Send Request to Join</button>
+                <span class="spinner" aria-label="Submitting…"></span>
             </form>
         </section>
     </main>

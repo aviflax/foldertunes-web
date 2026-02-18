@@ -144,6 +144,41 @@ section#join-form {
     button[type="submit"]:hover {
         background: #3a7ab0;
     }
+
+    p.success {
+        text-align: center;
+        color: #1a5c2a;
+        font-weight: 600;
+    }
+
+    p.error {
+        text-align: center;
+        color: #8b1a1a;
+        font-weight: 600;
+    }
+
+    .spinner {
+        display: none;
+    }
+
+    form.htmx-request button[type="submit"] {
+        display: none;
+    }
+
+    form.htmx-request .spinner {
+        display: block;
+        width: 1.5em;
+        height: 1.5em;
+        border: 3px solid #8fb8da;
+        border-top-color: #4a90c4;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        margin: 0 auto;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
 }
 
 footer {
