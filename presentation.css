@@ -55,8 +55,8 @@ main > ul > li {
 }
 
 section#join-form {
-    background-color: lightskyblue;
-    box-shadow: 3px 3px 5px lightpink;
+    background-color: #b0e0ff;
+    box-shadow: 2px 2px 5px lightpink;
     /*border: 1px solid darkblue;*/
     font-size: 10pt;
     border-radius: 18px;
