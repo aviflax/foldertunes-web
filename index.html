@@ -6,6 +6,7 @@
 	<title>FolderTunes</title>
 	<link rel="stylesheet" href="presentation.css">
 	<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
 </head>
 <body id="home">
     <main>
@@ -21,7 +22,9 @@
             <p>If you’ll agree to send me feedback, I’d love for you to try out the
                app right now, before it's fully baked, gratis.</p>
             
-            <form action="foo" method="POST">
+            <form hx-post="https://foldertunes-beta-invite-requests.val.run/"
+                  hx-ext="json-enc"
+                  hx-swap="outerHTML">
                 <label class="field">
                     <span>Email</span>
                     <input name="email" type="email" required placeholder="you@email.com"/>
