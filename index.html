@@ -17,15 +17,21 @@
         
         <section id="join-form">
             <h1>Join the Beta?</h1>
-            <p>If you’ll agree to send me feedback, I’ll agree that you can try the
-               app out right now, before it’s fully baked, gratis.</p>
+            <p>If you'll agree to send me feedback, I'll agree that you can try the
+               app out right now, before it's fully baked, gratis.</p>
             <form action="foo" method="POST">
-                I agree to send feedback: <input type="checkbox" required/>
-                <br>
-                <input name="email" type="email" required placeholder="you@email.com"/>
-                <br>
-                Max emails per year: <input type="number" value="3" min="1" max="18" size="2"/>
-                <br>
+                <label class="field">
+                    <span>Email</span>
+                    <input name="email" type="email" required placeholder="you@email.com"/>
+                </label>
+                <label class="field">
+                    <span>Max emails per year</span>
+                    <input name="max-emails" type="number" value="3" min="1" max="18"/>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" required/>
+                    I agree to send feedback
+                </label>
                 <button type="submit">Send Request to Join</button>
             </form>
         </section>
