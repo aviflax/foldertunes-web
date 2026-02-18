@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FolderTunes</title>
-	<link rel="stylesheet" href="presentation.css">
-	<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
-	<script>
-		function onSubmitted(event) {
-			if (event.detail.successful) {
-				event.target.innerHTML =
-					'<p class="success">✅ Request submitted and pending. Look for an email from TestFlight soon!</p>';
-			} else {
-				event.target.innerHTML =
-					'<p class="error">❌ Sadly, an error occurred. Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>';
-			}
-		}
-	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FolderTunes</title>
+    <link rel="stylesheet" href="presentation.css">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
+    <script>
+      function onSubmitted(event) {
+        event.target.innerHTML = event.detail.successful
+          ? '<p class="success">✅ Request submitted and pending. Look for an email from TestFlight soon!</p>'
+          : '<p class="error">❌ Sorry, an error occurred. Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>';
+      }
+    </script>
 </head>
 <body id="home">
     <main>
@@ -33,7 +29,8 @@
             <p>If you’ll agree to send me feedback, I’d love for you to try out the
                app right now, before it's fully baked, gratis.</p>
             
-            <form method="POST" action="https://foldertunes-beta-invite-requests.val.run/"
+            <form method="POST"
+                  action="https://foldertunes-beta-invite-requests.val.run/"
                   hx-boost="true"
                   hx-ext="json-enc"
                   hx-swap="none"
@@ -50,7 +47,7 @@
                     <input type="checkbox" required/>
                     I agree to send feedback
                 </label>
-                <button type="submit">Send Request to Join</button>
+                <button type="submit">Send Request</button>
                 <span class="spinner" aria-label="Submitting…"></span>
             </form>
         </section>
