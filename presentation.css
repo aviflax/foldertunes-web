@@ -54,6 +54,22 @@ main > ul > li {
     margin-top: 1.25rem;
 }
 
+section#join-form {
+    background-color: lightskyblue;
+    box-shadow: 3px 3px 5px lightpink;
+    /*border: 1px solid darkblue;*/
+    font-size: 10pt;
+    border-radius: 18px;
+    padding: 18px;
+    max-width: 28em;
+    margin: 3em auto;
+    
+    h1 {
+        color: white;
+        text-shadow: 1px 1px 2px lightpink;
+    }
+}
+
 footer {
     margin-top: auto;
     margin-bottom: 5pt;

@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FolderTunes</title>
 	<link rel="stylesheet" href="presentation.css">
+	<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
 </head>
 <body id="home">
     <main>
@@ -13,6 +14,21 @@
         <h1>FolderTunes</h1>
         <h2>An iPhone app for playing music files from a folder.</h2>
         <h3>Coming soon.</h3>
+        
+        <section id="join-form">
+            <h1>Join the Beta?</h1>
+            <p>If you’ll agree to send me feedback, I’ll agree that you can try the
+               app out right now, before it’s fully baked, gratis.</p>
+            <form action="foo" method="POST">
+                I agree to send feedback: <input type="checkbox" required/>
+                <br>
+                <input name="email" type="email" required placeholder="you@email.com"/>
+                <br>
+                Max emails per year: <input type="number" value="3" min="1" max="18" size="2"/>
+                <br>
+                <button type="submit">Send Request to Join</button>
+            </form>
+        </section>
     </main>
     
     <footer>
