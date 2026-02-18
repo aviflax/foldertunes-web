@@ -8,6 +8,15 @@
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
     <script>
+      document.addEventListener('htmx:configRequest', function(event) {
+        const form = event.detail.elt;
+        form.querySelectorAll('input[type="number"]').forEach(function(input) {
+          if (input.name in event.detail.parameters) {
+            event.detail.parameters[input.name] = Number(event.detail.parameters[input.name]);
+          }
+        });
+      });
+
       function onSubmitted(event) {
         event.target.innerHTML = event.detail.successful
           ? '<p class="success">✅ Request submitted and pending. Look for an email from TestFlight soon!</p>'
