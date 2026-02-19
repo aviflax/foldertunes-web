@@ -82,6 +82,11 @@ section#join-form {
         flex-direction: column;
         gap: 1.5em;
     }
+
+    form:has(> p.success:first-child),
+    form:has(> p.error:first-child) {
+        gap: 0;
+    }
     
     form:has(:invalid) button[type="submit"] {
       pointer-events: none;
@@ -169,17 +174,15 @@ section#join-form {
         background: #3a7ab0;
     }
 
-    p.success {
+    p.success, p.error {
+        margin: 0.5em 0;
         text-align: center;
-        color: #1a5c2a;
         font-weight: 600;
     }
+    
+    p.success { color: #1a5c2a; }
 
-    p.error {
-        text-align: center;
-        color: #8b1a1a;
-        font-weight: 600;
-    }
+    p.error { color: #8b1a1a; }
 
     .spinner {
         display: none;
