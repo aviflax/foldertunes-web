@@ -54,6 +54,133 @@ main > ul > li {
     margin-top: 1.25rem;
 }
 
+section#join-form {
+    background: linear-gradient(135deg, #d0eeff, #b0d4ff);
+    box-shadow: 0 4px 12px lightpink;
+    font-size: 12pt;
+    border-radius: 18px;
+    padding: 2em 2.5em;
+    max-width: 28em;
+    margin: 2.5em auto;
+    text-align: left;
+
+    h1 {
+        text-align: center;
+        color: #1a3a5c;
+        font-size: 1.6em;
+        margin-bottom: 0.3em;
+    }
+
+    p {
+        text-align: center;
+        color: #2c4a6a;
+        margin-bottom: 1.5em;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    form:has(:invalid) button[type="submit"] {
+      pointer-events: none;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    label.field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+
+        span {
+            font-weight: 600;
+            color: #2c4a6a;
+        }
+
+        input {
+            padding: 0.5em 0.7em;
+            border: 1px solid #8fb8da;
+            border-radius: 8px;
+            font-size: 1em;
+            background: white;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4a90c4;
+            box-shadow: 0 0 0 2px rgba(74, 144, 196, 0.25);
+        }
+    }
+
+    label.checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        color: #2c4a6a;
+        font-weight: 600;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+            width: 1.1em;
+            height: 1.1em;
+            accent-color: #4a90c4;
+        }
+    }
+
+    button[type="submit"] {
+        padding: 0.6em 1.2em;
+        background: #4a90c4;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+    button[type="submit"]:hover {
+        background: #3a7ab0;
+    }
+
+    p.success {
+        text-align: center;
+        color: #1a5c2a;
+        font-weight: 600;
+    }
+
+    p.error {
+        text-align: center;
+        color: #8b1a1a;
+        font-weight: 600;
+    }
+
+    .spinner {
+        display: none;
+    }
+
+    form.htmx-request button[type="submit"] {
+        display: none;
+    }
+
+    form.htmx-request .spinner {
+        display: block;
+        width: 1.5em;
+        height: 1.5em;
+        border: 3px solid #8fb8da;
+        border-top-color: #4a90c4;
+        border-radius: 50%;
+        animation: spin 0.6s linear infinite;
+        margin: 0 auto;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+}
+
 footer {
     margin-top: auto;
     margin-bottom: 5pt;

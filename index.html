@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FolderTunes</title>
-	<link rel="stylesheet" href="presentation.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FolderTunes</title>
+    <link rel="stylesheet" href="presentation.css">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
+    <meta name="htmx-config" content='{"selfRequestsOnly": false}' />
+    <script>
+      document.addEventListener('htmx:configRequest', (event) => {
+        const form = event.detail.elt;
+        form.querySelectorAll('input[type="number"]').forEach((input) => {
+          if (input.name in event.detail.parameters) {
+            event.detail.parameters[input.name] = Number(event.detail.parameters[input.name]);
+          }
+        });
+      });
+
+      function onSubmitted(event) {
+        event.target.innerHTML = event.detail.successful
+          ? `<p class="success">✅ Request submitted and pending.
+             <br>Look for an email from TestFlight soon!
+             <br>(If it doesn’t show up, please <a href="mailto:beta@foldertunes.app">email me</a>.)</p>`
+          : `<p class="error">❌ Sorry, an error occurred.
+             <br>Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>`;
+      }
+    </script>
 </head>
 <body id="home">
     <main>
@@ -13,6 +35,35 @@
         <h1>FolderTunes</h1>
         <h2>An iPhone app for playing music files from a folder.</h2>
         <h3>Coming soon.</h3>
+        
+        <section id="join-form">
+            <h1>Join the Beta?</h1>
+            
+            <p>If you’ll agree to send me feedback, I’d love for you to try out the
+               app right now, before it's fully baked, gratis.</p>
+            
+            <form method="POST"
+                  action="https://foldertunes-beta-join-requests.val.run/"
+                  hx-boost="true"
+                  hx-ext="json-enc"
+                  hx-swap="none"
+                  hx-on::after-request="onSubmitted(event)">
+                <label class="field">
+                    <span>Email</span>
+                    <input name="emailAddress" type="email" required placeholder="you@email.com"/>
+                </label>
+                <label class="field">
+                    <span>Max emails per year</span>
+                    <input name="maxEmailsPerYear" type="number" required value="3" min="0" max="18"/>
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" required/>
+                    I agree to send feedback
+                </label>
+                <button type="submit">Send Request</button>
+                <span class="spinner" aria-label="Submitting…"></span>
+            </form>
+        </section>
     </main>
     
     <footer>
