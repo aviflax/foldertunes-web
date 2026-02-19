@@ -266,9 +266,10 @@ section#join-form {
         margin: 0 auto;
     }
 
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 footer {
