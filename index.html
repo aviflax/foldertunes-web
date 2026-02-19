@@ -20,11 +20,11 @@
 
       function onSubmitted(event) {
         event.target.innerHTML = event.detail.successful
-          ? `<p class="success">✅ Request submitted and pending.
-             <br>Look for an email from TestFlight soon!
-             <br>(If it doesn’t show up, please <a href="mailto:beta@foldertunes.app">email me</a>.)</p>`
-          : `<p class="error">❌ Sorry, an error occurred.
-             <br>Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>`;
+          ? `<p class="success">✅ Request submitted and pending.</p>
+             <p>Look for an email from TestFlight soon!</p>
+             <p>(If it doesn’t show up, please <a href="mailto:beta@foldertunes.app">email me</a>.)</p>`
+          : `<p class="error">❌ Sorry, an error occurred.</p>
+             <p>Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>`;
       }
     </script>
 </head>
