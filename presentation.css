@@ -80,7 +80,7 @@ section#join-form {
     form {
         display: flex;
         flex-direction: column;
-        gap: 1em;
+        gap: 1.5em;
     }
     
     form:has(:invalid) button[type="submit"] {
@@ -89,7 +89,7 @@ section#join-form {
       cursor: not-allowed;
     }
 
-    label.field {
+    .field {
         display: flex;
         flex-direction: column;
         gap: 0.3em;
@@ -111,6 +111,27 @@ section#join-form {
             outline: none;
             border-color: #4a90c4;
             box-shadow: 0 0 0 2px rgba(74, 144, 196, 0.25);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2em;
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 0.4em;
+            }
+
+            input[type="radio"] {
+                width: 1.1em;
+                height: 1.1em;
+                accent-color: #4a90c4;
+                padding: 0;
+                border: none;
+                border-radius: 0;
+                background: none;
+            }
         }
     }
 

@@ -49,16 +49,19 @@
                   hx-swap="none"
                   hx-on::after-request="onSubmitted(event)">
                 <label class="field">
-                    <span>Email</span>
+                    <span>Your email address</span>
                     <input name="emailAddress" type="email" required placeholder="you@email.com"/>
                 </label>
-                <label class="field">
-                    <span>Max emails per year</span>
-                    <input name="maxEmailsPerYear" type="number" required value="3" min="0" max="18"/>
-                </label>
+                <div class="field">
+                    <span>May I send you a few updates per year by email?</span>
+                    <div class="radio-group">
+                        <label><input name="emailUpdatesOK" type="radio" required value="yes"/> Yes</label>
+                        <label><input name="emailUpdatesOK" type="radio" required value="no"/> No</label>
+                    </div>
+                </div>
                 <label class="checkbox">
                     <input type="checkbox" required/>
-                    I agree to send feedback
+                    You agree to send feedback
                 </label>
                 <button type="submit">Send Request</button>
                 <span class="spinner" aria-label="Submitting…"></span>
