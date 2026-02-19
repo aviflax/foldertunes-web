@@ -44,9 +44,10 @@
             <p>If you’ll agree to send me feedback, I’d love for you to try out the
                app right now, before it's fully baked, gratis.</p>
             
+            <!-- hx-post rather than hx-boost so htmx doesn't scroll to the top after submission -->
             <form method="POST"
                   action="https://foldertunes-beta-join-requests.val.run/"
-                  hx-boost="true"
+                  hx-post="https://foldertunes-beta-join-requests.val.run/"
                   hx-ext="json-enc"
                   hx-swap="none"
                   hx-on::after-request="onSubmitted(event)">
