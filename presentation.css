@@ -135,12 +135,15 @@ section#join-form {
         }
     }
 
+    label {
+        color: #2c4a6a;
+        font-weight: 600;
+    }
+    
     label.checkbox {
         display: flex;
         align-items: center;
         gap: 0.5em;
-        color: #2c4a6a;
-        font-weight: 600;
         cursor: pointer;
 
         input[type="checkbox"] {
