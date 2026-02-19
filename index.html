@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="presentation.css">
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
+    <meta name="htmx-config" content='{"selfRequestsOnly": false}' />
     <script>
-      document.addEventListener('htmx:configRequest', function(event) {
+      document.addEventListener('htmx:configRequest', (event) => {
         const form = event.detail.elt;
-        form.querySelectorAll('input[type="number"]').forEach(function(input) {
+        form.querySelectorAll('input[type="number"]').forEach((input) => {
           if (input.name in event.detail.parameters) {
             event.detail.parameters[input.name] = Number(event.detail.parameters[input.name]);
           }
@@ -19,8 +20,11 @@
 
       function onSubmitted(event) {
         event.target.innerHTML = event.detail.successful
-          ? '<p class="success">✅ Request submitted and pending. Look for an email from TestFlight soon!</p>'
-          : '<p class="error">❌ Sorry, an error occurred. Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>';
+          ? `<p class="success">✅ Request submitted and pending.
+             <br>Look for an email from TestFlight soon!
+             <br>(If it doesn’t show up, please <a href="mailto:beta@foldertunes.app">email me</a>.)</p>`
+          : `<p class="error">❌ Sorry, an error occurred.
+             <br>Please try again later or <a href="mailto:beta@foldertunes.app">email me</a>.</p>`;
       }
     </script>
 </head>
@@ -39,7 +43,7 @@
                app right now, before it's fully baked, gratis.</p>
             
             <form method="POST"
-                  action="https://foldertunes-beta-invite-requests.val.run/"
+                  action="https://foldertunes-beta-join-requests.val.run/"
                   hx-boost="true"
                   hx-ext="json-enc"
                   hx-swap="none"
