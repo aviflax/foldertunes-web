@@ -73,6 +73,10 @@ body#home {
     text-align: center;
 }
 
+no-br {
+    white-space: nowrap;
+}
+
 a {
     color: var(--link-color);
 }
