@@ -9,15 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/htmx-ext-json-enc@2.0.3/json-enc.js"></script>
     <meta name="htmx-config" content='{"selfRequestsOnly": false}' />
     <script>
-      document.addEventListener('htmx:configRequest', (event) => {
-        const form = event.detail.elt;
-        form.querySelectorAll('input[type="number"]').forEach((input) => {
-          if (input.name in event.detail.parameters) {
-            event.detail.parameters[input.name] = Number(event.detail.parameters[input.name]);
-          }
-        });
-      });
-
       function onSubmitted(event) {
         event.target.innerHTML = event.detail.successful
           ? `<p class="success">✅ Request submitted and pending.</p>
