@@ -147,7 +147,7 @@ section#join-form {
         gap: 0;
     }
     
-    form:has(:invalid) button[type="submit"] {
+    form:has(:user-invalid) button[type="submit"] {
       pointer-events: none;
       opacity: 0.5;
       cursor: not-allowed;
