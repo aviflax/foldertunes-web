@@ -19,6 +19,7 @@
     --accent: #4a90c4;
     --accent-hover: #3a7ab0;
     --spinner-border: #8fb8da;
+    --marker: navy;
 
     --success: #1a5c2a;
     --error: #8b1a1a;
@@ -44,6 +45,7 @@
         --accent: #5a9fd4;
         --accent-hover: #6ab0e8;
         --spinner-border: #3a5570;
+        --marker: #6ab0e8;
 
         --success: #5cb870;
         --error: #e05555;
@@ -59,7 +61,7 @@ html, body {
 }
 
 body {
-    max-width: 800pt;
+    max-width: 600pt;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -71,6 +73,10 @@ body {
 body#home {
     font-size: 16pt;
     text-align: center;
+}
+
+no-br {
+    white-space: nowrap;
 }
 
 a {
@@ -147,7 +153,7 @@ section#join-form {
         gap: 0;
     }
     
-    form:has(:invalid) button[type="submit"] {
+    form:has(:user-invalid) button[type="submit"] {
       pointer-events: none;
       opacity: 0.5;
       cursor: not-allowed;
@@ -262,7 +268,45 @@ section#join-form {
         animation: spin 0.6s linear infinite;
         margin: 0 auto;
     }
+}
 
+section#q-and-a {
+    text-align: left;
+    font-size: 14pt;
+    
+    details {
+        margin-bottom: 1em;
+        padding-left: clamp(0.5em, 3vw, 1.5em);
+
+        summary {
+            h1, h2 {
+                display: inline-block;
+                margin-bottom: 0.5em;
+            }
+            
+            &::marker {
+                color: var(--marker);
+                font-size: xx-large;
+            }
+            
+            &:has(> h1) {
+                &::marker {
+                    font-size: xxx-large;
+                }
+            }
+        }
+        
+        &> *:not(summary) { padding-left: clamp(0.5em, 3vw, 1.5em); }
+        p { margin: 0 0 0.75em 0; }
+        
+        &> ul {
+            padding-left: 2.5em;
+            margin-top: 0.5em;
+        }
+        
+        li { margin: 0.5em 0; }
+        li > ul { margin-bottom: 1.25em; }
+    }
 }
 
 @keyframes spin {
