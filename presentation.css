@@ -19,6 +19,7 @@
     --accent: #4a90c4;
     --accent-hover: #3a7ab0;
     --spinner-border: #8fb8da;
+    --marker: navy;
 
     --success: #1a5c2a;
     --error: #8b1a1a;
@@ -44,6 +45,7 @@
         --accent: #5a9fd4;
         --accent-hover: #6ab0e8;
         --spinner-border: #3a5570;
+        --marker: #6ab0e8;
 
         --success: #5cb870;
         --error: #e05555;
@@ -283,7 +285,7 @@ section#q-and-a {
             }
             
             &::marker {
-                color: navy;
+                color: var(--marker);
                 font-size: xx-large;
             }
             
